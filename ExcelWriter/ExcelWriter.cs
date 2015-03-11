@@ -123,6 +123,27 @@ namespace ExcelWriterCSharp
             range.Worksheet.ListObjects[options.Name].TableStyle = tabStyle;
         }
 
+        public void CreateChartFromRange(int startRow, int startColumn, int endRow, int endColumn, ChartOptions options)
+        {
+            var charts = _sheetToWrite.ChartObjects() as Excel.ChartObjects;
+            var chartObject = charts.Add(options.Left, options.Top, 500, 500) as Excel.ChartObject;
+            var chart = chartObject.Chart;
+
+            var range = FindRange(startRow, startColumn, endRow, endColumn);
+
+            chart.SetSourceData(range);
+
+            if (options.Title != null)
+                chart.ChartWizard(Source: range, Title: options.Title);
+            if (options.XAxeTitle != null)
+                chart.ChartWizard(Source: range, CategoryTitle: options.XAxeTitle);
+            if (options.YAxeTitle != null)
+                chart.ChartWizard(Source: range, ValueTitle: options.YAxeTitle);
+            //Important le style en dernier sinon ca déonne avec le nom des axes.
+            if (options.Style != ChartStyle.None)
+                chart.ChartType = (Excel.XlChartType)options.Style;
+        }
+
         private Excel.Range FindRange(int startRow, int startColumn,int endRow, int endColumn)
         {
             string startCell = _convert.ConvertCellNumToLetter(startRow, startColumn);
@@ -213,5 +234,6 @@ namespace ExcelWriterCSharp
 
             GC.Collect();
         }
+       
     }
 }

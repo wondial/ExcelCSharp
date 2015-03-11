@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\ChartEnum.cs" />
     <Compile Include="Models\CellBorder.cs" />
     <Compile Include="Models\CellOptions.cs" />
     <Compile Include="Enum\AlignmentEnum.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Enum\TableEnum.cs" />
     <Compile Include="ExcelConvert.cs" />
     <Compile Include="ExcelWriter.cs" />
+    <Compile Include="Models\ChartOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
