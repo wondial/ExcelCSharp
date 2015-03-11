@@ -113,12 +113,14 @@ namespace ExcelWriterCSharp
             AttributeOptions(options, range);
         }
 
-        public void FormatRangeAsTable(int startRow, int startColumn,int endRow, int endColumn, string tableName)
+        public void FormatRangeAsTable(int startRow, int startColumn,int endRow, int endColumn, TableOptions options)
         {
             Excel.Range range = FindRange(startRow, startColumn, endRow, endColumn);
-            range.Worksheet.ListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, range, System.Type.Missing, Excel.XlYesNoGuess.xlYes, System.Type.Missing).Name = tableName;
+            range.Worksheet.ListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, range, System.Type.Missing, (Excel.XlYesNoGuess)options.Headers, System.Type.Missing).Name = options.Name;
             range.Select();
-            range.Worksheet.ListObjects[tableName].TableStyle = "TableStyleMedium14";
+            
+            string tabStyle = (options.Style != TableStyle.None) ? options.Style.ToString() : "";
+            range.Worksheet.ListObjects[options.Name].TableStyle = tabStyle;
         }
 
         private Excel.Range FindRange(int startRow, int startColumn,int endRow, int endColumn)

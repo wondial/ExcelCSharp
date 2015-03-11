@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CellBorder.cs" />
-    <Compile Include="CellOptions.cs" />
+    <Compile Include="Models\CellBorder.cs" />
+    <Compile Include="Models\CellOptions.cs" />
+    <Compile Include="Enum\AlignmentEnum.cs" />
+    <Compile Include="Enum\BorderEnum.cs" />
+    <Compile Include="Enum\TableEnum.cs" />
     <Compile Include="ExcelConvert.cs" />
     <Compile Include="ExcelWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\TableOptions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

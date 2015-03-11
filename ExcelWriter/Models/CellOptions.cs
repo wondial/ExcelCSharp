@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Excel = Microsoft.Office.Interop.Excel;
-using ExcelWriterCSharp.Enum;
 
 namespace ExcelWriterCSharp
 {
