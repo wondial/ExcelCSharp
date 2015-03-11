@@ -35,7 +35,6 @@ namespace ExcelWriterCSharp
 
             _app.ActiveSheet.Name = sheetName;
             AddNameToSheetsNames(sheetName);
-
             _sheets.Add(_app.ActiveSheet);
             _sheetToWrite = _app.ActiveSheet;
 

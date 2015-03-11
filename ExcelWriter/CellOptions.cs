@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Excel = Microsoft.Office.Interop.Excel;
+using ExcelWriterCSharp.Enum;
 
 namespace ExcelWriterCSharp
 {
@@ -28,21 +29,5 @@ namespace ExcelWriterCSharp
         {
             Borders = new List<CellBorder>();
         }
-    }
-
-    public enum HorizontalAlignment
-    {
-        Center = Excel.XlHAlign.xlHAlignCenter,
-        Left = Excel.XlHAlign.xlHAlignLeft,
-        Right = Excel.XlHAlign.xlHAlignRight,
-        Justify = Excel.XlHAlign.xlHAlignJustify
-    }
-
-    public enum VerticalAlignment
-    {
-        Center = Excel.XlVAlign.xlVAlignCenter,
-        Top = Excel.XlVAlign.xlVAlignTop,
-        Bottom = Excel.XlVAlign.xlVAlignBottom,
-        Justify = Excel.XlVAlign.xlVAlignJustify
     }
 }

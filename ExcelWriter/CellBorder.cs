@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Excel = Microsoft.Office.Interop.Excel;
+using ExcelWriterCSharp.Enum;
 
 namespace ExcelWriterCSharp
 {
@@ -18,25 +19,5 @@ namespace ExcelWriterCSharp
         {
             this.Position = position;
         }
-    }
-
-    public enum BorderStyle
-    {
-        Continuous = Excel.XlLineStyle.xlContinuous,
-        Dash = Excel.XlLineStyle.xlDash,
-        DashDot = Excel.XlLineStyle.xlDashDot,
-        DashDotDot = Excel.XlLineStyle.xlDashDotDot,
-        Dot = Excel.XlLineStyle.xlDot,
-        Double = Excel.XlLineStyle.xlDouble,
-        None = Excel.XlLineStyle.xlLineStyleNone,
-        SlantDashDot = Excel.XlLineStyle.xlSlantDashDot
-    }
-
-    public enum BorderPosition
-    {
-        Top = Excel.XlBordersIndex.xlEdgeTop,
-        Left = Excel.XlBordersIndex.xlEdgeLeft,
-        Right = Excel.XlBordersIndex.xlEdgeRight,
-        Bottom = Excel.XlBordersIndex.xlEdgeBottom
-    }
+    } 
 }
