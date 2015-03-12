@@ -8,6 +8,7 @@ namespace ExcelWriterCSharp
 {
     public enum HorizontalAlignment
     {
+        None,
         Center = Excel.XlHAlign.xlHAlignCenter,
         Left = Excel.XlHAlign.xlHAlignLeft,
         Right = Excel.XlHAlign.xlHAlignRight,
@@ -16,6 +17,7 @@ namespace ExcelWriterCSharp
 
     public enum VerticalAlignment
     {
+        None,
         Center = Excel.XlVAlign.xlVAlignCenter,
         Top = Excel.XlVAlign.xlVAlignTop,
         Bottom = Excel.XlVAlign.xlVAlignBottom,

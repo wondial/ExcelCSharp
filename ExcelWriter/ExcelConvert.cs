@@ -16,7 +16,7 @@ namespace ExcelWriterCSharp
             string column = "";
             resteList = new List<int>();
             if (col < 1)
-                throw new IndexOutOfRangeException();
+                throw new ArgumentOutOfRangeException("col", "col cannot be lower than 1");
             else
             {
                 if (col > columnsLetter.Length)

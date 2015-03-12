@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Collections.ObjectModel;
 
 namespace ExcelWriterCSharp
 {
@@ -22,11 +23,26 @@ namespace ExcelWriterCSharp
         public HorizontalAlignment TextHorizontalAlignment { get; set; }
         public VerticalAlignment TextVerticalAlignment { get; set; }
 
-        public List<CellBorder> Borders { get; set; }
+        public ReadOnlyCollection<CellBorder> Borders
+        {
+            get { return borders.AsReadOnly(); }
+        } 
+
+        private List<CellBorder> borders;
 
         public CellOptions()
         {
-            Borders = new List<CellBorder>();
+            borders = new List<CellBorder>();
+        }
+
+        public void AddBorder(CellBorder border)
+        {
+            borders.Add(border);
+        }
+
+        public void RemoveBorder(CellBorder border)
+        {
+            borders.Remove(border);
         }
     }
 }

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files (x86)\microsoft fxcop 1.36\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="fr-FR" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/ExcelWriter/bin/Debug/ExcelWriterCSharp.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Targets>
+   <Target Name="$(ProjectDir)/ExcelWriter/bin/Debug/ExcelWriterCSharp.dll">
+    <Modules>
+     <Module Name="excelwritercsharp.dll">
+      <Messages>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Excluded" Created="2015-03-12 15:48:30Z">
+        <Issue>
+         <Item>'ExcelWriterCSharp.dll'</Item>
+        </Issue>
+        <Notes>
+         <User Name="denis">
+          <Note Id="1" />
+         </User>
+        </Notes>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="ExcelWriterCSharp">
+        <Types>
+         <Type Name="BorderPosition">
+          <Messages>
+           <Message TypeName="EnumsShouldHaveZeroValue" Category="Microsoft.Design" CheckId="CA1008" Status="Excluded" Created="2015-03-12 15:48:30Z" FixCategory="NonBreaking">
+            <Issue Name="NotFlagsNoZeroValue">
+             <Item>'BorderPosition'</Item>
+            </Issue>
+            <Notes>
+             <User Name="denis">
+              <Note Id="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="TableHeaders">
+          <Messages>
+           <Message TypeName="EnumsShouldHaveZeroValue" Category="Microsoft.Design" CheckId="CA1008" Status="Excluded" Created="2015-03-12 15:48:30Z" FixCategory="NonBreaking">
+            <Issue Name="NotFlagsNoZeroValue">
+             <Item>'TableHeaders'</Item>
+            </Issue>
+            <Notes>
+             <User Name="denis">
+              <Note Id="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="denis">
+    <Note Id="0" Modified="2015-03-12 15:48:55Z">Les enum sont obligatoire, le none n'est pas acceptable</Note>
+    <Note Id="1" Modified="2015-03-12 15:59:29Z">Ne marche pas avec le InteropOffice</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="EnumsShouldHaveZeroValue" Category="Microsoft.Design" CheckId="CA1008">
+    <Resolution Name="NotFlagsNoZeroValue">Add a member to {0} that has a value of zero with a suggested name of 'None'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>
